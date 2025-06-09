@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Randrake';
+  src: url('/fonts/Randrake.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.navbar-logo {
+  font-family: 'Randrake';
+}
+
+.navbar-navlinks a {
+  font-family: 'Arvo', sans-serif;
+}
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+.herotagline{
+  font-family: "Alumni Sans SC", sans-serif;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

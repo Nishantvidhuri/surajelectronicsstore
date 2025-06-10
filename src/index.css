@@ -31,3 +31,34 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+@keyframes tvBoot {
+  0% {
+    transform: scale(1.2, 0.1);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.05, 1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.animate-tvBoot {
+  animation: tvBoot 1s ease-out;
+}
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -40px; /* Adjust as needed */
+  }
+}
+
+.animate-scanlines {
+  background-image: linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 55%, transparent 55%);
+  background-size: 100% 20px; /* Adjust line thickness and spacing */
+  animation: scanlines 0.2s linear infinite;
+}

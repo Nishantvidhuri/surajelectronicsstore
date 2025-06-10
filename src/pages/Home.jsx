@@ -8,6 +8,7 @@ import StatsSection from '../components/home/StatsSection';
 import ReviewsSection from '../components/home/ReviewsSection';
 import MapSection from '../components/home/MapSection';
 import ContactSection from '../components/home/ContactSection';
+import TVLoader from "./TVLoader";
 
 function Home() {
   const navigate = useNavigate();
@@ -112,11 +113,7 @@ function Home() {
   };
 
   if (loading) {
-    return (
-      <div className="pt-20 flex justify-center items-center min-h-screen bg-gray-50 text-gray-800">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
-      </div>
-    );
+    return <TVLoader/>
   }
 
   if (error) {

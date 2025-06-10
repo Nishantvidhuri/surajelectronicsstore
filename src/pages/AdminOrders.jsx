@@ -65,7 +65,7 @@ function AdminOrders() {
 
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/orders', {
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/orders', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
 
@@ -105,7 +105,7 @@ function AdminOrders() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+      const res = await fetch(`https://backendsurajelectronic.onrender.com/api/orders/${orderId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

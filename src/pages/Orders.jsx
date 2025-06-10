@@ -26,7 +26,7 @@ function Orders() {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/orders/my', {
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/orders/my', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -59,7 +59,7 @@ function Orders() {
   const handleCancelOrder = async (orderId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+      const response = await fetch(`https://backendsurajelectronic.onrender.com/api/orders/${orderId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

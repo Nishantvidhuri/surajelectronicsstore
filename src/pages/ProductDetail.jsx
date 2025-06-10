@@ -16,18 +16,18 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+        const res = await fetch(`https://backendsurajelectronic.onrender.com/api/products/${id}`);
         const data = await res.json();
         setProduct(data);
 
-        const allRes = await fetch('http://localhost:5000/api/products');
+        const allRes = await fetch('https://backendsurajelectronic.onrender.com/api/products');
         const all = await allRes.json();
         const related = all.filter(p => p.category === data.category && p._id !== data._id);
         setRelatedProducts(related.slice(0, 4));
 
         const token = localStorage.getItem('token');
         if (token) {
-          const cartRes = await fetch('http://localhost:5000/api/cart', {
+          const cartRes = await fetch('https://backendsurajelectronic.onrender.com/api/cart', {
             headers: { 'Authorization': `Bearer ${token}` },
           });
           if (cartRes.ok) {
@@ -52,7 +52,7 @@ const ProductDetail = () => {
     if (!isLoggedIn) return navigate('/login');
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/cart', {
+      const response = await fetch('https://backendsurajelectronic.onrender.com/api/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const ProductDetail = () => {
     try {
       const token = localStorage.getItem('token');
       if (newQty < 1 && cartItemId) {
-        const res = await fetch(`http://localhost:5000/api/cart/${cartItemId}`, {
+        const res = await fetch(`https://backendsurajelectronic.onrender.com/api/cart/${cartItemId}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${token}` },
         });
@@ -87,7 +87,7 @@ const ProductDetail = () => {
         return;
       }
 
-      const res = await fetch(`http://localhost:5000/api/cart/${cartItemId}`, {
+      const res = await fetch(`https://backendsurajelectronic.onrender.com/api/cart/${cartItemId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ function AdminComplaints() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:5000/api/complaints", {
+      const res = await fetch("https://backendsurajelectronic.onrender.com/api/complaints", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +29,7 @@ function AdminComplaints() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`http://localhost:5000/api/complaints/${id}`, {
+      const res = await fetch(`https://backendsurajelectronic.onrender.com/api/complaints/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

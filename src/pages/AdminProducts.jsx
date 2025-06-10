@@ -16,7 +16,7 @@ function AdminProducts() {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/products', {
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/products', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!response.ok) throw new Error('Failed to fetch products');
@@ -36,7 +36,7 @@ function AdminProducts() {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+        const response = await fetch(`https://backendsurajelectronic.onrender.com/api/products/${productId}`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -53,7 +53,7 @@ function AdminProducts() {
   const handleStockToggle = async (productId, currentStatus) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+      const response = await fetch(`https://backendsurajelectronic.onrender.com/api/products/${productId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

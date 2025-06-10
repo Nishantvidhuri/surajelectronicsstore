@@ -16,7 +16,7 @@ function AdminUsers() {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/auth/users', {
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/auth/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -38,7 +38,7 @@ function AdminUsers() {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000/api/auth/users/${userId}`, {
+        const response = await fetch(`https://backendsurajelectronic.onrender.com/api/auth/users/${userId}`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${token}` }
         });

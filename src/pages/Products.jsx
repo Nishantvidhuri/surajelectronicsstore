@@ -15,7 +15,7 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/products');
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/products');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
         setProducts(data);
@@ -33,7 +33,7 @@ function Products() {
       if (!isLoggedIn) return setUserCart({});
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/cart', {
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/cart', {
           headers: { 'Authorization': `Bearer ${token}` },
         });
         if (!response.ok) {
@@ -60,7 +60,7 @@ function Products() {
     setUserCart(prev => ({ ...prev, [product._id]: { _id: 'temp', product, quantity: 1 } }));
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/cart', {
+      const response = await fetch('https://backendsurajelectronic.onrender.com/api/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ function Products() {
     setUserCart(prev => ({ ...prev, [item.product._id]: { ...item, quantity } }));
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/cart/${item._id}`, {
+      const res = await fetch(`https://backendsurajelectronic.onrender.com/api/cart/${item._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({ quantity }),
@@ -106,7 +106,7 @@ function Products() {
     setUserCart(prev => { const clone = { ...prev }; delete clone[productId]; return clone; });
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/cart/${item._id}`, {
+      const res = await fetch(`https://backendsurajelectronic.onrender.com/api/cart/${item._id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });

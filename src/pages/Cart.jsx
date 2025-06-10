@@ -25,7 +25,7 @@ function Cart() {
 
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/cart', {
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/cart', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -55,7 +55,7 @@ function Cart() {
     
     try {
        const token = localStorage.getItem('token');
-       const response = await fetch(`http://localhost:5000/api/cart/${itemId}`, {
+       const response = await fetch(`https://backendsurajelectronic.onrender.com/api/cart/${itemId}`, {
          method: 'PUT',
          headers: {
            'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ function Cart() {
   const handleRemoveItem = async (itemId) => {
     try {
       const token = localStorage.getItem('token');
-       const response = await fetch(`http://localhost:5000/api/cart/${itemId}`, {
+       const response = await fetch(`https://backendsurajelectronic.onrender.com/api/cart/${itemId}`, {
          method: 'DELETE',
          headers: {
            'Authorization': `Bearer ${token}`
@@ -113,7 +113,7 @@ function Cart() {
   const handleClearCart = async () => {
      try {
        const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/cart', {
+        const response = await fetch('https://backendsurajelectronic.onrender.com/api/cart', {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -157,7 +157,7 @@ function Cart() {
       // 1. If isDefault is true, update the user's profile with this address
       if (isDefault) {
         try {
-          const profileUpdateResponse = await fetch('http://localhost:5000/api/auth/profile', {
+          const profileUpdateResponse = await fetch('https://backendsurajelectronic.onrender.com/api/auth/profile', {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -182,7 +182,7 @@ function Cart() {
         paymentMethod: paymentMethod, // Include the selected payment method
       };
 
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch('https://backendsurajelectronic.onrender.com/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -261,7 +261,7 @@ function Cart() {
     try {
       console.log('Making request to create Razorpay payment...');
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/orders/create-payment', {
+      const res = await fetch('https://backendsurajelectronic.onrender.com/api/orders/create-payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -290,7 +290,7 @@ function Cart() {
         handler: async function (response) {
           console.log('Payment handler triggered. Response:', response);
           try {
-            const verifyRes = await fetch('http://localhost:5000/api/orders/verify-payment', {
+            const verifyRes = await fetch('https://backendsurajelectronic.onrender.com/api/orders/verify-payment', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
